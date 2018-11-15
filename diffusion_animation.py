@@ -10,8 +10,8 @@ class MyWindow(pyglet.window.Window):
         self.fps_display = pyglet.window.FPSDisplay(self)
         self.label = pyglet.text.Label('', font_name='Times New Roman',
                                        x=70, y=self.height - 10,
-                                       anchor_x='center', anchor_y='center')
-        self.label.color = (255, 255, 255, 100)
+                                       anchor_x='center', anchor_y='center',
+                                       color=(255, 255, 255, 100))
 
         # Properties of the particle:
         self.radius = 5.0

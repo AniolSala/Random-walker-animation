@@ -8,6 +8,7 @@ class Particle():
         self.pos = array((x, y))
         self.r = rad
 
+        # Number of vertices of the particle:
         N = 30
         self.clist = color * N
         self.vlist = []
@@ -21,7 +22,5 @@ class Particle():
 
     def update(self, dt, step):
         self.pos += step
-        for i in range(len(self.vlist)):
-            self.vlist[i] += step[i % 2]
         for i in range(len(self.vertices.vertices)):
-            self.vertices.vertices[i] = self.vlist[i]
+            self.vertices.vertices[i] += step[i % 2]
