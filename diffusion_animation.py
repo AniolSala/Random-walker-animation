@@ -49,7 +49,7 @@ class MyWindow(pyglet.window.Window):
         self.label.draw()
 
         self.fps_display.draw()
-        self.fps_display.set_fps(50)
+        self.fps_display.set_fps(60)
 
     def update(self, dt):
 
@@ -86,7 +86,8 @@ class MyWindow(pyglet.window.Window):
 
         # Refresh the entropy value display every 30 frames:
         if self.count % 30 == 0:
-            self.label.text = 'Entropy = {}'.format(round(self.entropy, 3))
+            displayEntropy = str(round(self.entropy, 3))[::-1].zfill(5)[::-1]
+            self.label.text = 'Entropy = {}  (bits)'.format(displayEntropy)
 
         # Refresh the number of particles per grid and sum 1 to count.
         self.grid *= 0.
@@ -95,7 +96,7 @@ class MyWindow(pyglet.window.Window):
 
 
 if __name__ == '__main__':
-    world = MyWindow(width=200, height=200)
+    world = MyWindow(width=400, height=400)
     pyglet.gl.glClearColor(.1, .1, .1, .1)
     world.on_draw()
 
